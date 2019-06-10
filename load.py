@@ -16,30 +16,17 @@ def load_images_from_folder(folder,letter):
         final=[]
         img = cv2.imread(os.path.join(folder,filename),0)
         img=255-img
-<<<<<<< HEAD
-        roi=img
+        roi=img[2:30,2:30]
         final.append([letter]+list(roi.flatten()))
         writefile(final,'dataset.csv')
         # if flag==0:
-            #cv2.imshow('image',img)
-            #cv2.imshow('cropped',roi)
-=======
-        roi=img[0:28,0:28]
-        final.append([letter]+list(roi.flatten()))
-        writefile(final,'dataset.csv')
-        if flag==0:
-            #cv2.imshow('image',img)
-            cv2.imshow('cropped',roi)
->>>>>>> 7be8f0d66d81a4825d2d88db201ce85f044cbef0
-            #print(img.shape)
-            #print(roi.shape)
-            #cv2.waitKey(0)
-            #cv2.destroyAllWindows()
-<<<<<<< HEAD
-            # flag=1
-=======
-            flag=1
->>>>>>> 7be8f0d66d81a4825d2d88db201ce85f044cbef0
+        #     cv2.imshow('image',img)
+        #     cv2.imshow('cropped',roi)
+        #     print(img.shape)
+        #     print(roi.shape)
+        #     cv2.waitKey(0)
+        #     cv2.destroyAllWindows()
+        #     flag=1
         if img is not None:
             images.append(img)
     return images
@@ -48,7 +35,6 @@ hindi_letters=['ka','kha','ga','gha','kna','cha','chha','ja','jha','yna','taa','
 path='dataset/Test/character_'
 for i in range(0,36):
     load_images_from_folder(path+str(i+1)+'_'+hindi_letters[i],hindi_letters[i])    
-<<<<<<< HEAD
     print(hindi_letters[i])
 path='dataset/Train/character_'
 for i in range(0,36):
@@ -62,6 +48,3 @@ path='dataset/Train/digit_'
 for i in range(0,10):
     load_images_from_folder(path+str(i),str(i))    
     print(i)
-=======
-    print(hindi_letters[i])
->>>>>>> 7be8f0d66d81a4825d2d88db201ce85f044cbef0
