@@ -9,7 +9,7 @@ def writefile(data,path):
     with open(path,'a+') as f:
         df.to_csv(f,mode='a',header=False)
 
-def load_images_from_folder(folder,letter):
+def load_images_from_folder(folder,letter,output):
     # flag=0
     images = []
     for filename in os.listdir(folder):
@@ -18,7 +18,7 @@ def load_images_from_folder(folder,letter):
         img=255-img
         roi=img[2:30,2:30]
         final.append([letter]+list(roi.flatten()))
-        writefile(final,'dataset.csv')
+        writefile(final,output)
         # if flag==0:
         #     cv2.imshow('image',img)
         #     cv2.imshow('cropped',roi)
@@ -34,17 +34,17 @@ def load_images_from_folder(folder,letter):
 hindi_letters=['ka','kha','ga','gha','kna','cha','chha','ja','jha','yna','taa','thaa','daa','dhaa','adna','ta','tha','da','dha','na','pa','pha','ba','bha','ma','yaw','ra','la','va','sha','petchiryakha','patalosaw','ha','chhya','tra','gya']
 path='dataset/Test/character_'
 for i in range(0,36):
-    load_images_from_folder(path+str(i+1)+'_'+hindi_letters[i],hindi_letters[i])    
+    load_images_from_folder(path+str(i+1)+'_'+hindi_letters[i],hindi_letters[i],'test.csv')    
     print(hindi_letters[i])
 path='dataset/Train/character_'
 for i in range(0,36):
-    load_images_from_folder(path+str(i+1)+'_'+hindi_letters[i],hindi_letters[i])    
+    load_images_from_folder(path+str(i+1)+'_'+hindi_letters[i],hindi_letters[i],'train.csv')    
     print(hindi_letters[i])
 path='dataset/Test/digit_'
 for i in range(0,10):
-    load_images_from_folder(path+str(i),str(i))    
+    load_images_from_folder(path+str(i),str(i),'test.csv')    
     print(i)
 path='dataset/Train/digit_'
 for i in range(0,10):
-    load_images_from_folder(path+str(i),str(i))    
+    load_images_from_folder(path+str(i),str(i),'train.csv')    
     print(i)
