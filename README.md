@@ -1,4 +1,4 @@
-# Hindi-Letter-OCR
+# Hindi Handwritten Characters recognition  
 
 My attempt at recreating a Hindi Letter OCR from a research paper written by Shailesh Acharya, Ashok Kumar Pant and Prashna Kumar Gyawali.
 
